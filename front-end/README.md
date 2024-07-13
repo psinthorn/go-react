@@ -73,10 +73,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### การใช้งาน useEffect
 #### รูปแบบ
-`
+```
 useEffect(() => {}, []);
 
-`
+```
+
 สำหรับ [] ที่อยู่ใน parameter สุดท้ายนั้น จะทำงานในกรณีต่างๆ ต่อไปนี้
 - 1. หากไม่มีอยู่ useEffect ทำงานทุกครั้งที่ render
 - 2. หากเป็น [] array ว่าง useEffect จะทำงานที่เกิดการ render ครั้งแรก
@@ -99,7 +100,7 @@ useEffect(() => {}, []);
 --- <Input ref={firstNameRef}  />
 --- firstNameRef.current.value = "";
 -- การ implement useForwardRef ที่ฝั่ง component
-`
+```
     import { forwardRef } from "react";
 
     const Input = forwardRef(({title, type, id, name, className, autoComplete, onChange}, ref) => {
@@ -120,5 +121,5 @@ useEffect(() => {}, []);
     })
     
     export default Input
-  `
+  ```
 

@@ -123,3 +123,6 @@ useEffect(() => {}, []);
     export default Input
   ```
 
+  ### Class Life Cycle
+  
+

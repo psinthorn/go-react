@@ -1,4 +1,4 @@
-import { forwardRef } from "react"
+import { forwardRef } from "react";
 
 const Input = forwardRef(({title, type, id, name, className, autoComplete, onChange}, ref) => {
     return (

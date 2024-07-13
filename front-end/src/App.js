@@ -2,7 +2,7 @@
 
 import React, { Fragment, useEffect, useRef, useState } from "react"
 import './App.css';
-import Input from './input';
+import Input from './Input';
 
 
 

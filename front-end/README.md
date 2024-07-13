@@ -82,3 +82,43 @@ useEffect(() => {}, []);
 - 2. หากเป็น [] array ว่าง useEffect จะทำงานที่เกิดการ render ครั้งแรก
 - 3. เราสามารถใส่ props หรือ state เข้าไปใน [] array ได้และ useEffect จะทำงานเมื่อ ข้อมูลใน prpops หรือ state มีการอัพเดทหรือเปลี่ยนแปลง *แต่ไม่ควร set State ในฟังชั่น
 
+### การใช้งาน useRef
+#### รูปเเบบการใช้
+- ใช้ในกรณีที่ component อยู่ในไฟล์เดียวกัน
+-- การประกาศตัวแปร
+--- const firstNameRef = useRef(); 
+-- เพิ่ม Property Ref ให้ component
+--- <input ref={firstNameRef}  />
+-- หากต้องการ clear ข้อมูลปัจจุบันใน Ref
+--- firstNameRef.current.value = "";
+
+- ใช้ useForwardRef ในกรณีที่ component อยู่ต่างไฟล์กัน
+-- การประกาศตัวแปร
+--- const firstNameRef = useRef(null);
+-- เพิ่ม Property Ref ให้ component
+--- <Input ref={firstNameRef}  />
+--- firstNameRef.current.value = "";
+-- การ implement useForwardRef ที่ฝั่ง component
+`
+    import { forwardRef } from "react";
+
+    const Input = forwardRef(({title, type, id, name, className, autoComplete, onChange}, ref) => {
+        return (
+        <div className='mb-3'>
+            <label className='form-label' htmlFor={name}>{title}</label>
+            <input 
+                type={type}
+                id={name}
+                ref={ref}
+                className={className}
+                autoComplete={autoComplete}
+                onChange={onChange}
+            >
+            </input>
+        </div>
+        )
+    })
+    
+    export default Input
+  `
+

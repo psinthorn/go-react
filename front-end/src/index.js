@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -9,7 +16,7 @@ root.render(
     <div className='container'>
       <div className='row'>
         <div className='col'>
-          <App msg="Hello props from functional"/>
+          <RouterProvider router={router} />
         </div>
       </div>
     </div>   

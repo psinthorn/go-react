@@ -1,4 +1,4 @@
-import React from 'react'
+// Menu Item component
 
 const MenuItem = ({title, link, icon, status}) => {
   return (

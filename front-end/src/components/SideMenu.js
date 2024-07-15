@@ -1,4 +1,5 @@
 // Side menu components 
+// call menu item component and pass props to menu item props
 
 import MenuItem from "./MenuItem"
 
@@ -14,13 +15,35 @@ const menuList = [
         link: "/movies",
         icon: "",
         status: true
+    }, 
+    {
+        title: "Genres",
+        link: "/genres",
+        icon: "",
+        status: true
+    },
+    {
+        title: "Add Movie",
+        link: "/add-movies",
+        icon: "",
+        status: true
+    },
+    {
+        title: "Manage Calalogue",
+        link: "/manage-calalogue",
+        icon: "",
+        status: true
+    },
+    {
+        title: "GraphQL",
+        link: "/graphql",
+        icon: "",
+        status: true
     }
 ]
 
-const SideMenu = ({title, link, icon, status}) => {
-    const newLocal = <div  title={menuList.title} link={menuList.link} className="list-group-item list-group-item-action">{menuList.title}<div />
+const SideMenu = () => {
 
-    </div>
     return (
        <>
         <div className="list-group">
@@ -31,7 +54,6 @@ const SideMenu = ({title, link, icon, status}) => {
                    )
                 })
             }
-            {newLocal}
         </div>
        </>
     )

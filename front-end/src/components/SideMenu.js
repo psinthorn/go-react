@@ -1,9 +1,9 @@
 // Side menu components 
 // call menu item component and pass props to menu item props
 
-import MenuItem from "./MenuItem"
+import SideMenuItem from "./SideMenuItem"
 
-const menuList = [
+const menuItemList = [
     {
         title: "Home",
         link: "/",
@@ -22,21 +22,39 @@ const menuList = [
         icon: "",
         status: true
     },
+];
+
+const adminMenuList = [
     {
         title: "Add Movie",
-        link: "/add-movies",
+        link: "/movie-manage",
         icon: "",
         status: true
     },
     {
         title: "Manage Calalogue",
-        link: "/manage-calalogue",
+        link: "/manage-catalogue",
         icon: "",
         status: true
     },
     {
         title: "GraphQL",
         link: "/graphql",
+        icon: "",
+        status: true
+    },
+];
+
+const loginLogout = [
+    {
+        title: "Log In",
+        link: "/login",
+        icon: "",
+        status: true
+    },
+    {
+        title: "Log Out",
+        link: "/logout",
         icon: "",
         status: true
     }
@@ -46,11 +64,29 @@ const SideMenu = () => {
 
     return (
        <>
+        <div className="list-group mb-3">
+            {
+                menuItemList.map((menu) => {
+                   return (
+                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
+                   )
+                })
+            }
+        </div>
+        <div className="list-group mb-3">
+            {
+                adminMenuList.map((menu) => {
+                   return (
+                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
+                   )
+                })
+            }
+        </div>
         <div className="list-group">
             {
-                menuList.map((menu) => {
+                loginLogout.map((menu) => {
                    return (
-                   <MenuItem key={menu.title} title={menu.title} />
+                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
                    )
                 })
             }

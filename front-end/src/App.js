@@ -1,5 +1,6 @@
 import React from 'react'
 import SideMenu from './components/SideMenu';
+import { Outlet } from 'react-router-dom';
 
 function App(){
   return (
@@ -20,7 +21,7 @@ function App(){
             <SideMenu />
           </div>
           <div className='col md-10'>
-            Main Content
+            <Outlet />
           </div>
         </div>
       </div>

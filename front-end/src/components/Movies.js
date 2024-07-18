@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Movie from './Movie'
+import MovieItem from './MovieItem'
 
 const Movies = () => {
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
     console.log("useEffect Fired!");
+
     const movieList = [
       {
         id: 1,
@@ -39,7 +40,8 @@ const Movies = () => {
     <div className='text-center'>
       {
         movies.map((m) => {
-          return <Movie key={m.id} title={m.title} mpaa_rate={m.mpaa_rate} score={m.score} />
+          return <MovieItem key={m.id} id={m.id} title={m.title} mpaa_rate={m.mpaa_rate} score={m.score} />
+
         })
       }
     </div>

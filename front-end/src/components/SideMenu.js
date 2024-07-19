@@ -1,7 +1,9 @@
 // Side menu components 
 // call menu item component and pass props to menu item props
 
+import { useState } from "react";
 import SideMenuItem from "./SideMenuItem"
+import { Link } from "react-router-dom";
 
 const menuItemList = [
     {
@@ -32,7 +34,7 @@ const menuItemList = [
 
 const adminMenuList = [
     {
-        title: "Add Movie",
+        title: "Manage Movie",
         link: "/movie-manage",
         icon: "",
         status: true
@@ -67,6 +69,7 @@ const loginLogout = [
 ]
 
 const SideMenu = () => {
+    const [jwtToken, SetJwtToken] = useState("aaa");
 
     return (
        <>
@@ -80,7 +83,7 @@ const SideMenu = () => {
             }
         </div>
         <div className="list-group mb-3">
-            {
+            {jwtToken !== "" &&
                 adminMenuList.map((menu) => {
                    return (
                    <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
@@ -89,12 +92,15 @@ const SideMenu = () => {
             }
         </div>
         <div className="list-group">
-            {
-                loginLogout.map((menu) => {
-                   return (
-                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
-                   )
-                })
+            {jwtToken === "" ? 
+            <Link to="/login" className="badge badge-success bg-success">Log in</Link>
+            :
+            <a href="#!" className="badge badge-danger bg-danger">Log Out</a>
+                // loginLogout.map((menu) => {
+                //    return (
+                //    <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
+                //    )
+                // })
             }
         </div>
        </>

@@ -16,6 +16,12 @@ const menuItemList = [
         icon: "",
         status: true
     }, 
+    // {
+    //     title: "Movie",
+    //     link: "/movie/:id",
+    //     icon: "",
+    //     status: true
+    // }, 
     {
         title: "Genres",
         link: "/genres",

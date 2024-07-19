@@ -11,6 +11,7 @@ import ManageCatalogue from './components/ManageCatalogue';
 import GraphQL from './components/GraphQL';
 import Login from './components/Login';
 import LogOut from './components/LogOut';
+import Movie from './components/Movie';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
         element: <Movies />
       },
       {
-        path: "/movies/:id",
-        element: <Movies />
+        path: "/movie/:id",
+        element: <Movie />
       },
       {
         path: "/genres",

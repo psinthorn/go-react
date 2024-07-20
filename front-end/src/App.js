@@ -4,7 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 
 function App(){
-  const [logIn, setLogin] = useState(true);
+  const [jwtToken, SetJwtToken] = useState('');
+  const [logIn, setLogin] = useState(false);
   return (
     <>
       <div className='container'>
@@ -27,7 +28,10 @@ function App(){
             <SideMenu />
           </div>
           <div className='col-md-10'>
-            <Outlet />
+            <Outlet context={{
+               jwtToken, SetJwtToken
+            }} 
+            />
           </div>
         </div>
       </div>

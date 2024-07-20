@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Input from './form/Input';
 
 const LoginForm = () => {
   // useState
@@ -6,26 +7,48 @@ const LoginForm = () => {
   // props
   // handleSubmit function
   
-  const [login, setLogin] = useState([]); 
+  const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState([]);
 
+  const handleSubmit = () => {
+    return true
+  }
+
   return ( 
-    <div className='text-center'>Log In
-      <div class="mb-3 row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="staticEmail" value="email@example.com" />
-          </div>
+    <div className=''>
+      <h2>Log In</h2>
+    <hr/>
+      <div class="mb-3">
+        {/* <label for="staticEmail" class="col-sm-2 col-form-label">Email</label> */}
+            <form onSubmit={handleSubmit}>
+              <Input 
+                key={1}
+                type="email" 
+                id="staticEmail" 
+                title="Email"
+                name="email-address"
+                className="form-control" 
+                onChange={(event) => setEmail(event.target.value)}
+                autoComplete="Login email"
+              />
+            </form>
       </div>
-      <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" />
-          </div>
+      <div class="mb-3">
+        {/* <label for="inputPassword" class="col-sm-2 col-form-label">Password</label> */}
+            <Input 
+              key={1}
+              type="password" 
+              id="staticPassword" 
+              title="Pawword"
+              name="password"
+              className="form-control" 
+              onChange={(event) => setPassword(event.target.value)}
+              autoComplete="Your Password"
+            />   
       </div>
-      <div class="mb-3 row">
-        {/* <div type="button" className='btn btn-success'>Log In</div> */}
-        <button type="button" class="btn btn-success">Success</button>
+      <div class="mb-3">
+        <div type="button" className='btn btn-primary'>Log In</div>
+        {/* <button type="button" class="btn btn-success">Login</button> */}
       </div>
     </div>
   )

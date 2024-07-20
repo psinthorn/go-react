@@ -69,7 +69,7 @@ const loginLogout = [
 ]
 
 const SideMenu = () => {
-    const [jwtToken, SetJwtToken] = useState("aaa");
+    const [jwtToken, SetJwtToken] = useState("");
 
     return (
        <>
@@ -96,11 +96,13 @@ const SideMenu = () => {
             <Link to="/login" className="badge badge-success bg-success">Log in</Link>
             :
             <a href="#!" className="badge badge-danger bg-danger">Log Out</a>
+
                 // loginLogout.map((menu) => {
                 //    return (
                 //    <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
                 //    )
                 // })
+
             }
         </div>
        </>

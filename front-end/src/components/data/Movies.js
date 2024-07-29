@@ -1,0 +1,38 @@
+const movieList = [
+    {
+      id: 1,
+      title: "Blackhawk Down",
+      release_date: "11-12-2023",
+      runtime: "148",
+      mpaa_rate: "PG-18",
+      score: "5",
+      status: true,
+    },
+    {
+      id: 2,
+      title: "Green Mile",
+      release_date: "11-12-2023",
+      runtime: "148",
+      mpaa_rate: "PG-13",
+      score: "4",
+      status: true,
+    },
+    {
+      id: 3,
+      title: "Shawshank",
+      release_date: "11-12-2023",
+      runtime: "148",
+      mpaa_rate: "PG-13",
+      score: "5",
+      status: true,
+    },
+    {
+      id: 4,
+      title: "The Mattrix",
+      release_date: "11-12-2023",
+      runtime: "150",
+      mpaa_rate: "PG-18",
+      score: "4",
+      status: true,
+    },
+  ]

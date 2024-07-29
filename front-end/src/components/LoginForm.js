@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Input from './form/Input';
+import { useOutletContext } from 'react-router-dom';
 
 const LoginForm = () => {
   // useState
@@ -7,49 +8,50 @@ const LoginForm = () => {
   // props
   // handleSubmit function
   
-  const [email, setEmail] = useState(""); 
-  const [password, setPassword] = useState([]);
+  const [email, setEmail] = useState(); 
+  const [password, setPassword] = useState();
 
-  const handleSubmit = () => {
-    return true
-  }
+  const { SetJwtToken, jwtToken } = useOutletContext();
+
+ const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Handle Submit " + `${password} `+ email);
+    if(email === "admin@admin.com") {
+      SetJwtToken(true);
+    }
+    console.log("Set Token to -> " + jwtToken);
+};
 
   return ( 
     <div className=''>
       <h2>Log In</h2>
     <hr/>
-      <div class="mb-3">
-        {/* <label for="staticEmail" class="col-sm-2 col-form-label">Email</label> */}
-            <form onSubmit={handleSubmit}>
-              <Input 
-                key={1}
+      <div className="mb-3">
+          <form onSubmit={handleSubmit} >
+            <Input 
+                key={12}
                 type="email" 
                 id="staticEmail" 
                 title="Email"
-                name="email-address"
+                name="email"
                 className="form-control" 
                 onChange={(event) => setEmail(event.target.value)}
                 autoComplete="Login email"
-              />
-            </form>
-      </div>
-      <div class="mb-3">
-        {/* <label for="inputPassword" class="col-sm-2 col-form-label">Password</label> */}
+            />
             <Input 
-              key={1}
-              type="password" 
-              id="staticPassword" 
-              title="Pawword"
-              name="password"
-              className="form-control" 
-              onChange={(event) => setPassword(event.target.value)}
-              autoComplete="Your Password"
+                key={11}
+                type="password" 
+                id="staticPassword" 
+                title="Password"
+                name="password"
+                className="form-control" 
+                onChange={(event) => setPassword(event.target.value)}
+                autoComplete="Your Password"
             />   
+             <input type="submit" className='btn btn-primary' value="Log in"/>
+          </form>
       </div>
-      <div class="mb-3">
-        <div type="button" className='btn btn-primary'>Log In</div>
-        {/* <button type="button" class="btn btn-success">Login</button> */}
-      </div>
+     
     </div>
   )
 }

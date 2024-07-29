@@ -3,9 +3,10 @@
 
 import { useState } from "react";
 import SideMenuItem from "./SideMenuItem"
-import { Link, useOutletContext } from "react-router-dom";
+import { Link, useNavigate,} from "react-router-dom";
 
-const SideMenu = ({ jwtToken }) => {
+const SideMenu = ({ jwtToken, setJwtToken  }) => {
+    const navigate = useNavigate();
     // const [jwtToken, SetJwtToken] = useState();
     console.log("side menu: " + jwtToken);
 
@@ -29,9 +30,10 @@ const SideMenu = ({ jwtToken }) => {
                 })
             }
         </div>
+    
         <div className="list-group">
             {jwtToken !== false ? 
-            <a href="#!" className="badge badge-danger bg-danger">Log Out</a>
+            <a href="#!" className="badge badge-danger bg-danger" onClick={() => { setJwtToken(false); navigate("/login"); }}>Log Out</a>
             :
             <Link to="/login" className="badge badge-success bg-success">Log in</Link>
             }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Input from './form/Input';
-import { useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const LoginForm = () => {
   // useState
@@ -11,14 +11,31 @@ const LoginForm = () => {
   const [email, setEmail] = useState(); 
   const [password, setPassword] = useState();
 
-  const { SetJwtToken, jwtToken } = useOutletContext();
+  const { setJwtToken, jwtToken, setAlertLoginMessage, setAlertClassName } = useOutletContext();
+
+  const navigate = useNavigate();
 
  const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Handle Submit " + `${password} `+ email);
     if(email === "admin@admin.com") {
-      SetJwtToken(true);
+      setJwtToken(true);
+      setAlertLoginMessage("Loged in success");
+      setAlertClassName("alert-success");
+
+      setTimeout(() => {
+        setAlertClassName("d-none");
+        navigate("/");
+      }, 3000);
+
+    } else {
+      setAlertLoginMessage("Invalid Credentials");
+      setAlertClassName("alert-danger");
+      setTimeout(() => {
+        setAlertClassName("d-none");
+      },3000);
     }
+
     console.log("Set Token to -> " + jwtToken);
 };
 

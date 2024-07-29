@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import SideMenu from './components/SideMenu';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/nav/Navbar';
+import LoginAlert from './components/errors/LoginAlert';
 
 
 function App(){
-  const [jwtToken, SetJwtToken] = useState(false);
+  const [jwtToken, setJwtToken] = useState(false);
+  const [alertLoginMessage, setAlertLoginMessage] = useState("");
+  const [alertClassName, setAlertClassName] = useState("");
   // const [logIn, SetLogin] = useState(false);
 
   useEffect(() => (
@@ -27,11 +30,17 @@ function App(){
       <div className='container'> 
         <div className='row'>
           <div className='col-md-2'>
-            <SideMenu jwtToken={jwtToken} />
+            <SideMenu jwtToken={jwtToken} setJwtToken={setJwtToken} />
           </div>
           <div className='col-md-10'>
+
+            <LoginAlert alertLoginMessage={alertLoginMessage} alertClassName={alertClassName}/>
+
             <Outlet context={{
-               jwtToken, SetJwtToken
+               jwtToken, setJwtToken,
+               setAlertLoginMessage, 
+               setAlertClassName,
+
             }} 
             />
           </div>

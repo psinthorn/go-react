@@ -63,7 +63,7 @@ const Movies = () => {
       <tbody>     
         {movies.map((m) => {
             return (
-            <tr>
+            <tr key={m.title}>
               <th scope="row">{m.id}</th>
               <td className='decoration-none'><Link to={`/movie/${m.id}`}>{m.title}</Link></td>
               <td>{m.release_date}</td>

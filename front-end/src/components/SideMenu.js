@@ -3,7 +3,42 @@
 
 import { useState } from "react";
 import SideMenuItem from "./SideMenuItem"
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
+
+const SideMenu = ({ jwtToken }) => {
+    // const [jwtToken, SetJwtToken] = useState();
+    console.log("side menu: " + jwtToken);
+
+    return (
+       <>
+        <div className="list-group mb-3">
+            {
+                menuItemList.map((menu) => {
+                   return (
+                   <SideMenuItem link={menu.link} key={menu.link} title={menu.title} />
+                   )
+                })
+            }
+        </div>
+        <div className="list-group mb-3">
+            {jwtToken !== false &&
+                adminMenuList.map((menu) => {
+                   return (
+                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
+                   )
+                })
+            }
+        </div>
+        <div className="list-group">
+            {jwtToken !== false ? 
+            <a href="#!" className="badge badge-danger bg-danger">Log Out</a>
+            :
+            <Link to="/login" className="badge badge-success bg-success">Log in</Link>
+            }
+        </div>
+       </>
+    )
+}
 
 const menuItemList = [
     {
@@ -67,46 +102,5 @@ const loginLogout = [
         status: true
     }
 ]
-
-const SideMenu = () => {
-    const [jwtToken, SetJwtToken] = useState("");
-
-    return (
-       <>
-        <div className="list-group mb-3">
-            {
-                menuItemList.map((menu) => {
-                   return (
-                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
-                   )
-                })
-            }
-        </div>
-        <div className="list-group mb-3">
-            {jwtToken !== "" &&
-                adminMenuList.map((menu) => {
-                   return (
-                   <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
-                   )
-                })
-            }
-        </div>
-        <div className="list-group">
-            {jwtToken === "" ? 
-            <Link to="/login" className="badge badge-success bg-success">Log in</Link>
-            :
-            <a href="#!" className="badge badge-danger bg-danger">Log Out</a>
-
-                // loginLogout.map((menu) => {
-                //    return (
-                //    <SideMenuItem link={menu.link} key={menu.title} title={menu.title} />
-                //    )
-                // })
-
-            }
-        </div>
-       </>
-    )
-}
 
 export default SideMenu;

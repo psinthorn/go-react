@@ -22,6 +22,7 @@ const Movies = () => {
     .catch(err => {
       console.log(err)
     })
+    console.log(movies);
   }, [])
   
   return (
@@ -43,7 +44,8 @@ const Movies = () => {
               <td className='decoration-none'><Link to={`/movie/${m.id}`}>{m.title}</Link></td>
               <td>{m.release_date}</td>
               <td>{m.runtime}</td>
-              <td>{m.mpaa_rate}</td>
+              <td>{m.mpaa_rating}</td>
+              
             </tr>
             )
           })

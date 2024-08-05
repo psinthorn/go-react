@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 )
@@ -18,16 +17,9 @@ func (app *application) Home(w http.ResponseWriter, r *http.Request) {
 		Version: "1.0.0",
 	}
 
-	// Marshal payload to json
-	out, err := json.Marshal(payload)
-	if err != nil {
-		fmt.Println(err)
-	}
+	// Marshal payload to json with helper
+	app.writeJSON(w, http.StatusOK, payload)
 
-	// write header for http
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	w.Write(out)
 }
 
 func (app *application) Movies(w http.ResponseWriter, r *http.Request) {
@@ -37,15 +29,7 @@ func (app *application) Movies(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Marshal payload to json
-	out, err := json.Marshal(movies)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// write header for http
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	w.Write(out)
+	// Marshal payload to json with helper
+	app.writeJSON(w, http.StatusOK, movies)
 
 }

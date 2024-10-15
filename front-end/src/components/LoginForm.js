@@ -18,7 +18,7 @@ const LoginForm = () => {
  const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Handle Submit " + `${password} `+ email);
-    if(email === "admin@admin.com") {
+    if(email === "adminx@admin.com") {
       setJwtToken(true);
       setAlertLoginMessage("Loged in success");
       setAlertClassName("alert-success");

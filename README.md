@@ -23,7 +23,6 @@
 `$: go run .`
 <br>
 <br>
-
 3.1 Start frontend server
 <br>
 `$: cd /frontend`

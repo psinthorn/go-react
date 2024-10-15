@@ -1,4 +1,4 @@
-# How to Start Application
+# How to Up and Running Application
 
 1. Start docker container for database
 2. Start backend sever

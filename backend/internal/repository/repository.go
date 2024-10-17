@@ -1,8 +1,9 @@
 package repository
 
 import (
-	"backend/internal/models"
 	"database/sql"
+
+	"githup.com/psinthorn/go-react/internal/models"
 )
 
 type DatabaseRepo interface {

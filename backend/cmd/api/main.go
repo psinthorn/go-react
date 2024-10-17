@@ -1,15 +1,16 @@
 package main
 
 import (
-	"backend/internal/repository"
-	"backend/internal/repository/dbrepo"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
+
+	"githup.com/psinthorn/go-react/internal/repository"
+	"githup.com/psinthorn/go-react/internal/repository/dbrepo"
 )
 
-const port = 8080
+const port = 80
 
 type application struct {
 	DSN    string
@@ -23,7 +24,8 @@ func main() {
 	app.Domain = "localhost.local"
 
 	// read from command line
-	flag.StringVar(&app.DSN, "dsn", "host=localhost port=5432 user=postgres password=postgres dbname=movies sslmode=disable timezone=UTC connect_timeout=5", "Postgres connection string")
+	// * if you run all the app on docker contaniner with docker-compose host name must reference to service name on  docker-compose
+	flag.StringVar(&app.DSN, "dsn", "host=postgres port=5432 user=postgres password=postgres dbname=movies sslmode=disable timezone=UTC connect_timeout=5", "Postgres connection string")
 	flag.Parse()
 
 	// connect to database

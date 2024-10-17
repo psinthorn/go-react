@@ -1,10 +1,11 @@
 package dbrepo
 
 import (
-	"backend/internal/models"
 	"context"
 	"database/sql"
 	"time"
+
+	"githup.com/psinthorn/go-react/internal/models"
 )
 
 type PostgresDBRepo struct {
